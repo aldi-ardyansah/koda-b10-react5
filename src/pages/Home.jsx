@@ -64,12 +64,12 @@ function Home() {
 
             <Link to={articles[0].url}>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
-                The You You Haven't Met Yet
+                The You You Think You Know
               </h2>
             </Link>
 
             <p className="text-neutral-600 font-serif text-base line-clamp-2">
-              Getting older doesn't just change who we are. It changes how we understand who we've been.
+              To be fair, I wasn’t exactly making it difficult for them to assume.
             </p>
 
             <div className="flex items-center justify-between text-xs text-neutral-500 mt-3">
