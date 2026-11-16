@@ -64,7 +64,7 @@ function Home() {
 
             <Link to={articles[0].url}>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
-                The You You Think You Know
+                The You You Haven't Met Yet
               </h2>
             </Link>
 
@@ -107,12 +107,12 @@ function Home() {
 
             <Link to={articles[1].url}>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
-                What Should Programmers Do While the AI Writes Code?
+                The Difference Between Privacy and Secrecy
               </h2>
             </Link>
 
             <p className="text-neutral-600 font-serif text-base line-clamp-2">
-              Hint: not start another AI coding loop
+              Why keeping parts of yourself private can be healthy, while secrecy often begins where trust starts to erode.
             </p>
 
             <div className="flex items-center justify-between text-xs text-neutral-500 mt-3">
