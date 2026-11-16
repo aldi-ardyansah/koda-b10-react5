@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { CiBellOn, CiSearch } from "react-icons/ci";
@@ -6,6 +7,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { PiHandsClapping } from "react-icons/pi";
 import { FaComment } from "react-icons/fa";
 import { BiRepost } from "react-icons/bi";
+import articles from "../data/articles.json";
 
 function Home() {
   return (
@@ -13,9 +15,9 @@ function Home() {
       <nav className="sticky top-0 z-10 bg-white border-b border-neutral-200 flex items-center px-6 py-3">
         <div className="flex items-center gap-4">
           <RxHamburgerMenu className="text-xl text-neutral-600 cursor-pointer hover:text-black" />
-          <span className="text-3xl font-serif font-bold tracking-tight text-black">
+          <Link to="/" className="text-3xl font-serif font-bold tracking-tight text-black">
             Medium
-          </span>
+          </Link>
           <div className="hidden sm:flex items-center bg-neutral-100 rounded-full px-3 py-2 ml-2 gap-2">
             <CiSearch className="text-xl text-neutral-500" />
             <input
@@ -49,25 +51,25 @@ function Home() {
         </div>
 
         <div className="divide-y divide-neutral-200">
+          {/* Artikel 1 mengambil data index [0] dari JSON */}
           <article className="py-8 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-xs text-neutral-600 mb-1">
               <div className="w-5 h-5 rounded-full bg-neutral-300" />
               <div className="flex gap-1">
-                <span>In</span>
-                <span className="font-medium text-neutral-900">Bitchy</span>
-                <span>by</span>
-                <span className="font-medium text-neutral-900">Dori Kasa</span>
+                <span className="font-medium text-neutral-900">{articles[0].author}</span>
                 <span>·</span>
                 <span>Oct 14</span>
               </div>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
-              Can Men and Women Really Be Just Friends?
-            </h2>
+            <Link to={articles[0].url}>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
+                The You You Think You Know
+              </h2>
+            </Link>
 
             <p className="text-neutral-600 font-serif text-base line-clamp-2">
-              Apparently, even coffeecan get complicated when friendliness is so easily mistaken for something more.
+              Getting older doesn't just change who we are. It changes how we understand who we've been.
             </p>
 
             <div className="flex items-center justify-between text-xs text-neutral-500 mt-3">
@@ -88,7 +90,7 @@ function Home() {
               <div className="flex flex-row gap-4">
                 <MdThumbDown className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
                 <MdOutlineBookmarkAdd className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
-                <BsThreeDots className="text-xl text-neutral-600 hover:text-black cursor-pointer"  />
+                <BsThreeDots className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
               </div>
             </div>
           </article>
@@ -97,15 +99,17 @@ function Home() {
             <div className="flex items-center gap-2 text-xs text-neutral-600 mb-1">
               <div className="w-5 h-5 rounded-full bg-neutral-300" />
               <div className="flex gap-1">
-                <span className="font-medium text-neutral-900">Scott Batson</span>
+                <span className="font-medium text-neutral-900">{articles[1].author}</span>
                 <span>·</span>
                 <span>Sep 1</span>
               </div>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
-              What Should Programmers Do While the AI Writes Code?
-            </h2>
+            <Link to={articles[1].url}>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 hover:underline cursor-pointer">
+                What Should Programmers Do While the AI Writes Code?
+              </h2>
+            </Link>
 
             <p className="text-neutral-600 font-serif text-base line-clamp-2">
               Hint: not start another AI coding loop
@@ -129,7 +133,7 @@ function Home() {
               <div className="flex flex-row gap-4">
                 <MdThumbDown className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
                 <MdOutlineBookmarkAdd className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
-                <BsThreeDots className="text-xl text-neutral-600 hover:text-black cursor-pointer"  />
+                <BsThreeDots className="text-xl text-neutral-600 hover:text-black cursor-pointer" />
               </div>
             </div>
           </article>
