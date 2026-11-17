@@ -1,6 +1,10 @@
 import { Link, useSearchParams } from "react-router";
 import articles from "../data/articles.json";
 
+import { PiHandsClappingLight } from "react-icons/pi";
+import { FaRegComment } from "react-icons/fa";
+import { BiRepost } from "react-icons/bi";
+
 function Home() {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
@@ -30,6 +34,21 @@ function Home() {
             <p className="text-neutral-600 font-serif text-base line-clamp-2">
               {article.body[0]}
             </p>
+
+            <div className="flex items-center gap-4 text-sm text-neutral-600 mb-1">
+              <div className="flex items-center gap-1">
+                <PiHandsClappingLight />
+                <span>{article.claps}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <FaRegComment />
+                <span>{article.comments}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <BiRepost />
+                <span>{article.reposts}</span>
+              </div>
+            </div>
           </article>
         ))
       ) : (

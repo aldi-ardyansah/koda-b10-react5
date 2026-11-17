@@ -5,6 +5,9 @@ import articles from "../data/articles.json";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { CiBellOn, CiSearch } from "react-icons/ci";
+import { PiHandsClappingLight } from "react-icons/pi";
+import { FaRegComment } from "react-icons/fa";
+import { BiRepost } from "react-icons/bi";
 
 function Article() {
   const { pathname } = useLocation();
@@ -48,7 +51,7 @@ function Article() {
             <div className="w-5 h-5 rounded-full bg-neutral-300" />
             <span className="font-medium text-neutral-900">{currentArticle.author}</span>
             <span>·</span>
-            <span>Oct 14</span>
+            <span>{currentArticle.date}</span>
           </div>
           <div>
             {currentArticle.body.map((paragraph, index) => (
@@ -56,6 +59,20 @@ function Article() {
                 {paragraph}
               </p>
             ))}
+          </div>
+          <div className="flex items-center gap-4 text-sm text-neutral-600 mb-1">
+            <div className="flex items-center gap-1">
+              <PiHandsClappingLight />
+              <span>{currentArticle.claps}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <FaRegComment />
+              <span>{currentArticle.comments}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <BiRepost />
+              <span>{currentArticle.reposts}</span>
+            </div>
           </div>
         </div>
       </main>
