@@ -1,9 +1,26 @@
-import { Link } from "react-router";
+
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { CiBellOn, CiSearch } from "react-icons/ci";
 
 function Navbar() {
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const search = searchParams.get("search") || "";
+
+    function handleSearch(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const keyword = formData.get("search");
+
+        if (keyword.trim()) {
+            navigate(`/?search=${encodeURIComponent(keyword.trim())}`);
+        } else {
+            navigate("/");
+        }
+    }
+
     return (
       <nav className="sticky top-0 z-10 bg-white border-b border-neutral-200 flex items-center px-6 py-3">
         <div className="flex items-center gap-4">
@@ -11,14 +28,16 @@ function Navbar() {
           <Link to="/" className="text-3xl font-serif font-bold tracking-tight text-black">
             Medium
           </Link>
-          <div className="hidden sm:flex items-center bg-neutral-100 rounded-full px-3 py-2 ml-2 gap-2">
+          <form onSubmit={handleSearch} className="hidden sm:flex items-center bg-neutral-100 rounded-full px-3 py-2 ml-2 gap-2">
             <CiSearch className="text-xl text-neutral-500" />
             <input
               type="text"
+              name="search"
+              defaultValue={search}
               placeholder="Search"
               className="bg-transparent text-sm outline-none placeholder-neutral-500 w-48"
             />
-          </div>
+          </form>
         </div>
 
         <div className="flex items-center gap-6 ml-auto text-neutral-600">
